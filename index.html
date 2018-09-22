@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonacci</title>
+</head>
+<body>
+
+<label for="fib">Enter n for fibonacci</label>
+<input id="fib" type="number" min="0" step="1"/>
+<button id="btn">Submit</button>
+<p id="answer" style="display: block; margin-top: 5px"></p>
+
+<script>
+    function fibonacci(num) {
+        var a = 1, b = 0, temp;
+
+        while (num >= 0) {
+            temp = a;
+            a = a + b;
+            b = temp;
+            num--;
+        }
+
+        return b;
+    }
+
+    let btn = document.getElementById('btn');
+    btn.addEventListener('click', function () {
+        let n = parseInt(document.getElementById('fib').value) - 1;
+
+        document.getElementById('answer').innerText = fibonacci(n);
+
+    })
+</script>
+
+</body>
+</html>
